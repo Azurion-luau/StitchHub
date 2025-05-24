@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stitch Hub - Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #0077cc;
+            padding: 10px;
+            color: white;
+            display: flex;
+            gap: 10px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            background: #005fa3;
+            border-radius: 4px;
+        }
+        header a:hover {
+            background: #004080;
+        }
+        .container {
+            padding: 20px;
+        }
+        .code-block {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .code-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .code-content {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home.html">Home</a>
+        <a href="download.html">Download</a>
+    </header>
+    <div class="container">
+        <div class="code-block">
+            <div class="code-title">My Fishing Pier</div>
+            <div class="code-content" id="code1">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Azurion-luau/StitchHub/refs/heads/main/scripts/MyFishingPier.lua"))()
+            </div>
+            <button class="copy-button" onclick="copyToClipboard('code1')">Copy</button>
+        </div>
+
+        <div class="code-block">
+            <div class="code-title">2x More Fast Get Fish</div>
+            <div class="code-content" id="code2">
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Fight"):FireServer()
+            </div>
+            <button class="copy-button" onclick="copyToClipboard('code2')">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code).then(function() {
+                alert("Código copiado!");
+            }, function(err) {
+                alert("Erro ao copiar: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
